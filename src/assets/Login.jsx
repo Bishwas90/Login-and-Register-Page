@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
-import "./Login.css";
+import "./Register.css";
 
 const usePasswordToggle = () => {
   const [visible, setVisible] = useState(false);
@@ -16,25 +16,16 @@ const usePasswordToggle = () => {
 
 const Login = () => {
   const [passwordVisible, togglePasswordVisibility] = usePasswordToggle();
-  const [isPasswordFocused, setPasswordFocused] = useState(false);
-
-  const handlePasswordFocus = () => {
-    setPasswordFocused(true);
-  };
-
-  const handlePasswordBlur = () => {
-    setPasswordFocused(false);
-  };
+  const [confirmPasswordVisible, toggleConfirmPasswordVisibility] =
+    usePasswordToggle();
 
   return (
-    <div className="login-container">
-      <form className="login-form">
-        <h2 className="heading">Login</h2>
+    <div className="register-container">
+      <form className="register-form">
+        <h2 className="heading">login</h2>
         <div className="input-container">
           <label htmlFor="email">Email</label>
-          <div className={`input-icon ${isPasswordFocused ? "blur-icon" : ""}`}>
-            <input type="email" name="email" required />
-          </div>
+          <input type="email" name="email" required />
         </div>
         <div className="input-container">
           <label htmlFor="password">Password</label>
@@ -43,32 +34,37 @@ const Login = () => {
               type={passwordVisible ? "text" : "password"}
               name="password"
               required
-              onFocus={handlePasswordFocus}
-              onBlur={handlePasswordBlur}
             />
             <span
               className="toggle-password"
               onClick={togglePasswordVisibility}
             >
-              {passwordVisible ? <FaEye /> : <IoIosEyeOff />}
+              {passwordVisible ?  <FaEye/>: <IoIosEyeOff/>}
             </span>
           </div>
         </div>
-        <div className="remember-me-container">
-          <input type="checkbox" name="rememberMe" id="rememberMe" />
-          <label htmlFor="rememberMe">Remember Me</label>
+        <div className="input-container">
+          <label htmlFor="confirm-password">Confirm Password</label>
+          <div className="input-icon">
+            <input
+              type={confirmPasswordVisible ? "text" : "password"}
+              name="confirm-password"
+              required
+            />
+            <span
+              className="toggle-password"
+              onClick={toggleConfirmPasswordVisibility}
+            >
+              {confirmPasswordVisible ? <FaEye/>: <IoIosEyeOff/>}
+            </span>
+          </div>
         </div>
-        <div className="button-container">
-          <button type="submit" className="login-button">
-            Login
-          </button>
-          <span className="forgot-password">
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </span>
-        </div>
-        <div className="signup-container">
+        <button type="submit" className="register-button">
+          Login
+        </button>
+        <div className="login-container">
           <span>
-            New Here? <Link to="/register">Create an Account</Link>
+            Already have an account? <Link to="/register">Create Account</Link>
           </span>
         </div>
       </form>

@@ -23,6 +23,11 @@ const Register = () => {
     <div className="register-container">
       <form className="register-form">
         <h2 className="heading">Register</h2>
+
+        <div className="input-container">
+          <label htmlFor="username">UserName</label>
+          <input type="text" name="text" required />
+        </div>
         <div className="input-container">
           <label htmlFor="email">Email</label>
           <input type="email" name="email" required />
