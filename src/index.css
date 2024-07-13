@@ -2,7 +2,7 @@ body, html, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: url('./assets/bac.avif') no-repeat center center fixed;
+  background: url('./assets/Back.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 

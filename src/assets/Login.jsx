@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
 import "./Register.css";
+import Inventory from "./Inventory.json"
+import Lottie from "lottie-react";
+
+
 
 const usePasswordToggle = () => {
   const [visible, setVisible] = useState(false);
@@ -22,6 +26,7 @@ const Login = () => {
   return (
     <div className="register-container">
       <form className="register-form">
+      <Lottie animationData={Inventory}></Lottie>
         <h2 className="heading">login</h2>
         <div className="input-container">
           <label htmlFor="email">Email</label>
@@ -71,5 +76,7 @@ const Login = () => {
     </div>
   );
 };
+
+  <Lottie animationData={Inventory}></Lottie>
 
 export default Login;
